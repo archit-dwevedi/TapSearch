@@ -1,0 +1,36 @@
+.homepage_icon {
+    height: 85vh;
+}
+
+.home_head {
+    font-family: 'Ibarra', sans-serif;
+}
+
+.head_content {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.primary_but {
+    background: #ff7a5b;
+    border: none;
+    border-radius: 25vw;
+    margin-top: 2px;
+    transition: all .5s ease-out;
+    cursor: pointer;
+}
+
+.primary_but:hover,
+.secondary_but:hover {
+    margin-top: 0;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+.secondary_but {
+    background: rgba(255, 122, 91, .3);
+    border: none;
+    border-radius: 25vw;
+    margin-top: 2px;
+    transition: all .5s ease-out;
+    cursor: pointer;
+}

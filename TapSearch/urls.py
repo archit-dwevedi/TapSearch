@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 
 
 # Custom Imports
-from .views import index
+from TapSearch.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),

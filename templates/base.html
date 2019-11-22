@@ -6,41 +6,53 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-	<title> Home</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- ======================================================================== -->
-	<!-- Chrome, Firefox OS and Opera -->
-	<meta name="theme-color" content="#253031">
-	<!-- Windows Phone -->
-	<meta name="msapplication-navbutton-color" content="#253031">
-	<!-- iOS Safari -->
-	<meta name="apple-mobile-web-app-status-bar-style" content="#253031">
-	<!-- ============================================================================ -->
-	<link rel="icon" type="image/png" href="{% static 'img/favicon.png' %}"/>
-	<link rel="stylesheet" type="text/css" href="{% static 'assets/fontawesome/css/all.min.css' %}">
-	<script type="text/javascript" src="{% static 'fontawesome/js/all.min.js' %}"></script>
-	<script type="text/javascript" src="{% static 'jQuery/jQuery.js' %}"></script>
-	<link rel="stylesheet" type="text/css" href="{% static 'assets/bootstrap/css/bootstrap-grid.min.css' %}">
-	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.css' %}">
-	<script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-	<!-- ======================================================================== -->
-	<link rel="stylesheet" type="text/css" href="{% static 'css/TapSearch/style.css' %}">
-	<!-- ======================================================================== -->
-	<style type="text/css">
-		@font-face{
-			font-family: 'Cabin';
-			src: url('/static/fonts/Cabin/Cabin-Regular.ttf');
-		}
-		@font-face{
-			font-family: 'Pacifico';
-			src: url('/static/fonts/Pacifico/Pacifico-Regular.ttf');
-		}
-		body{
-			font-size:0.8em !important;
-		}
-	</style>
-	{% block customcss %}
-	{% endblock %}
-</head>
+    <head>
+        <title> TapSearch - A Simpler way to Search in Documents</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- ======================================================================== -->
+        <!-- Chrome, Firefox OS and Opera -->
+        <meta name="theme-color" content="#ff7a5b">
+        <!-- Windows Phone -->
+        <meta name="msapplication-navbutton-color" content="#ff7a5b">
+        <!-- iOS Safari -->
+        <meta name="apple-mobile-web-app-status-bar-style" content="#ff7a5b">
+        <!-- ============================================================================ -->
+        <link rel="icon" type="image/png" href="https://s3-ap-southeast-1.amazonaws.com/tapchief-production/Misc/favicon.ico"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'assets/fontawesome/css/all.min.css' %}">
+        <script type="text/javascript" src="{% static 'fontawesome/js/all.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'jQuery/jQuery.js' %}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'assets/bootstrap/css/bootstrap-grid.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.css' %}">
+        <script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+        <!-- ======================================================================== -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/TapSearch/style.css' %}">
+        <!-- ======================================================================== -->
+        {% block customcss %}
+
+
+        {% endblock %}
+    </head>
+    <body>
+        <!-- ============================NavBar======================== -->
+
+
+        <div class="container-fluid centered">
+            <div class="row">
+                <img src="{% static 'img/logo.png' %}" class="logo">
+                <h4 class="head">TapSearch</h4>
+            </div>
+        </div>
+
+
+        <!-- ============================NavBar======================== -->
+
+        {% block content %}
+
+        {% endblock %}
+
+        {% block script %}
+
+        {% endblock %}
+    </body>
+</html>
