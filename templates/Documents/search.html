@@ -15,7 +15,11 @@
 
 <div class="container">
 	<div class="row">
-        <input type="text" class="searchbox p-3" placeholder="Search for words" id="word">{% csrf_token %}
+        <input type="text" class="searchbox p-3" placeholder="Search for words" id="word" autofocus>{% csrf_token %}
+    </div>
+    <div class="row">
+        <input type="checkbox" id="id-name--1" class="switch-input">
+        <label for="id-name--1" class="switch-label" onclick="toggle()">Search By <span class="toggle--on">Word</span><span class="toggle--off">Letter</span></label>
     </div>
     <div class="container" id="content">
         <div class="row centered">

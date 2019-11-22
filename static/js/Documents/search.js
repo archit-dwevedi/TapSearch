@@ -4,6 +4,7 @@ $('#word').on("input", function() {
         url: '/documents/search',
         data: {
             word_ajax: $('#word').val(),
+            by_word_ajax: document.getElementById('id-name--1').checked,
             csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val()
         },
         cache: false,
@@ -15,3 +16,11 @@ $('#word').on("input", function() {
         }
     });
 });
+
+
+function toggle() {
+    // alert("toggle")
+    // alert(document.getElementById('id-name--1').checked);
+    // document.getElementById('id-name--1').checked = (document.getElementById('id-name--1').checked);
+    // alert(document.getElementById('id-name--1').checked);
+}

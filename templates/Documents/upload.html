@@ -51,25 +51,28 @@
             </div>
             <div class="col line"></div>
             <div class="container mx-2">
-                <form method="POST">{% csrf_token %}
+                <form method="POST"  enctype="multipart/form-data">{% csrf_token %}
                     <div class="row my-4">
                         <div class="col-3">
-                            <input type="file" accept=".pdf,.doc,.docx" name="file" multiple>
+                            <input type="file" accept=".pdf,.doc,.docx,.txt,.csv,.json,.jpg,.jpeg,.png" name="file" multiple>
                         </div>
                         <div class="col">
                             <button class="primary_but px-4 py-2 ml-4" type="submit">Analyze Doc/Pdf</button>
                         </div>
                     </div>
+                    <div class="row">
+                        <p style="font-size:.8em;">Multiple Selected File Field<br>(File type-.pdf,.doc,.docx,.txt,.csv,.json,.jpg,.jpeg,.png)</p>
+                    </div>
                 </form>
             </div>
         </div>
-        <div class="row my-3">
+        {% comment %} <div class="row my-3">
             <div class="col-1">
                 Images
             </div>
             <div class="col line"></div>
             <div class="container mx-2">
-                <form method="POST">{% csrf_token %}
+                <form method="POST"  enctype="multipart/form-data">{% csrf_token %}
                     <div class="row my-4">
                         <div class="col-3">
                             <input type="file" accept=".img" name="image" multiple>
@@ -80,7 +83,7 @@
                     </div>
                 </form>
             </div>
-        </div>
+        </div> {% endcomment %}
     </div>
 {% endblock content %}
 

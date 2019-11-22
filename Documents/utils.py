@@ -1,9 +1,13 @@
 
 
-from Documents.models import Paragraph,InvertedMap
+from Documents.models import Paragraph,InvertedMap,FileUpload
 from django.shortcuts import render,redirect
 import threading
 import time
+import textract
+from TapSearch.settings import BASE_DIR
+from django.core.files.storage import FileSystemStorage
+import os
 
 
 
@@ -21,6 +25,30 @@ def createInvertMap(paragraph):
     return 0
 
 
+def uploadParagraphs(request,s):
+    files=request.FILES.getlist(s)
+    for i in files:
+        myfile=i
+        fs = FileSystemStorage()
+        filename = fs.save("local/"+myfile.name,myfile)
+        uploaded_file_url = fs.url(filename)
+        text=textract.process(BASE_DIR+uploaded_file_url[6:])
+        print(type(str(text)),'\n\n\n\n\n\n\n')
+        paragraphs=str(text,'utf-8').strip().split("\n")
+        count=paragraphs.count('\r')
+        for i in range(count):
+            paragraphs.remove('\r')
+        p=[]
+        for i in range(len(paragraphs)):
+            paragraphs[i]=paragraphs[i]
+            obj=Paragraph(text=paragraphs[i])
+            obj.save()
+            p.append(obj)
+        thr=threading.Thread(target=createInvertMap,args=[p])
+        thr.start()
+    return 1
+
+
 def handleUpload(request):
     if request.POST.get('text'):
         paragraphs=request.POST.get('text').strip().split("\n")
@@ -36,10 +64,14 @@ def handleUpload(request):
         thr=threading.Thread(target=createInvertMap,args=[p])
         thr.start()
         return redirect('/')
-    elif request.POST.get('file'):
-        pass
-    elif request.POST.get('image'):
-        pass
+    elif request.FILES.getlist('file'):
+        thr=threading.Thread(target=uploadParagraphs,args=[request,'file'])
+        thr.start()
+        return redirect('/')
+    elif request.FILES.getlist('image'):
+        thr=threading.Thread(target=uploadParagraphs,args=[request,'image'])
+        thr.start()
+        return redirect('/')
     else:
         return 0
 
@@ -49,7 +81,10 @@ def handleUpload(request):
 def handleSearch(request):
     if request.POST.get('word_ajax'):
         start_time=time.time()
-        objs=InvertedMap.objects.filter(word=request.POST.get('word_ajax').lower())
+        if request.POST.get('by_word_ajax')=="true":
+            objs=InvertedMap.objects.filter(word=request.POST.get('word_ajax').lower())
+        else:
+            objs=InvertedMap.objects.filter(word__contains=request.POST.get('word_ajax').lower())
         count=0
         maps=[]
         for i in objs:
