@@ -1,0 +1,9 @@
+.line {
+    border: 1px solid rgba(0, 0, 0, .1);
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.primary_but:hover {
+    margin-bottom: 2px;
+}

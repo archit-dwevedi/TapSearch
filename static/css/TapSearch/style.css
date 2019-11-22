@@ -26,3 +26,8 @@
     margin-bottom: auto;
     font-weight: bold;
 }
+
+.home_anch {
+    color: black;
+    text-decoration: none;
+}

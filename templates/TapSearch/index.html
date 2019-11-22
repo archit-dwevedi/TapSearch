@@ -11,26 +11,27 @@
 
 {% block content %}
     <div class="container">
-        <div class="row">
-            <div class="col-6 head_content">
+        <div class="row flex-row flex-md-row-reverse">
+            <div class="col-md-6">
+                <img src="{% static 'img/homepage.webp' %}" class="homepage_icon">
+            </div>
+            <div class="col-md-6 head_content">
                 <h2 class="home_head">TapSearch - A Simpler way to Search</h2>
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col">
-                            <button class="primary_but py-2 px-5" onclick="window.location.href='/upload'">Upload</button>
+                            <button class="primary_but py-2 px-5" onclick="window.location.href='/documents/upload'">Upload</button>
                         </div>
                         <div class="col">
-                            <button class="secondary_but py-2 px-5" onclick="window.location.href='/clear'">Clear</button>
+                            <button class="secondary_but py-2 px-5" onclick="window.location.href='/documents/clear'">Clear</button>
                         </div>
                         <div class="col">
-                            <button class="secondary_but py-2 px-5" onclick="window.location.href='/search'">Search</button>
+                            <button class="secondary_but py-2 px-5" onclick="window.location.href='/documents/search'">Search</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-6">
-                <img src="{% static 'img/homepage.webp' %}" class="homepage_icon">
-            </div>
+            
         </div>
     </div>
 {% endblock %}

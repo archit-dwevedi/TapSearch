@@ -1,0 +1,19 @@
+.searchbox {
+    border: none;
+    border: 1px solid black;
+    border-radius: 25vw;
+    width: 100%;
+}
+
+.contain {
+    border: 1px solid rgba(0, 0, 0, .1);
+    padding: 10px;
+}
+
+.anch {
+    margin-left: auto;
+    color: #ff7a5b;
+    text-transform: none;
+    text-decoration: none;
+    ;
+}

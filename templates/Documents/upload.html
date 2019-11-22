@@ -1,0 +1,90 @@
+
+
+
+
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block customcss %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/TapSearch/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Documents/upload.css' %}">
+{% endblock customcss %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <button class="primary_but py-2 px-5" onclick="window.location.href='/documents/upload'">Upload</button>
+            </div>
+            <div class="col">
+                <button class="secondary_but py-2 px-5" onclick="window.location.href='/documents/clear'">Clear</button>
+            </div>
+            <div class="col">
+                <button class="secondary_but py-2 px-5" onclick="window.location.href='/documents/search'">Search</button>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-1">
+                Text
+            </div>
+            <div class="col line"></div>
+            <div class="container mx-2">
+                <form method="POST">{% csrf_token %}
+                    <div class="row my-3">
+                        
+                        <div class="col-10">
+                            <textarea rows="10" cols="130" name="text" placeholder="Some Paragraphs" class="p-2"></textarea>
+                        </div>
+                        <div class="col" style="margin-top:auto;">
+                            <button class="primary_but px-4 py-2 ml-4" type="submit">Analyze Text</button>
+                        </div>
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-1">
+                Documents
+            </div>
+            <div class="col line"></div>
+            <div class="container mx-2">
+                <form method="POST">{% csrf_token %}
+                    <div class="row my-4">
+                        <div class="col-3">
+                            <input type="file" accept=".pdf,.doc,.docx" name="file" multiple>
+                        </div>
+                        <div class="col">
+                            <button class="primary_but px-4 py-2 ml-4" type="submit">Analyze Doc/Pdf</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-1">
+                Images
+            </div>
+            <div class="col line"></div>
+            <div class="container mx-2">
+                <form method="POST">{% csrf_token %}
+                    <div class="row my-4">
+                        <div class="col-3">
+                            <input type="file" accept=".img" name="image" multiple>
+                        </div>
+                        <div class="col">
+                            <button class="primary_but px-4 py-2 ml-4" type="submit">Analyze Image</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+
+{% block script %}
+
+{% endblock script %}

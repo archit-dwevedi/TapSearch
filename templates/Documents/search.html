@@ -1,0 +1,34 @@
+
+
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block customcss %}
+    {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/' %}"> {% endcomment %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Documents/search.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+        <input type="text" class="searchbox p-3" placeholder="Search for words" id="word">{% csrf_token %}
+    </div>
+    <div class="container" id="content">
+        <div class="row centered">
+            <h4>Sorry No Paragraphs found</h4>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block script %}
+
+    <script src="{% static 'assets/jQuery/jQuery.js' %}"></script>
+    <script src="{% static 'js/Documents/search.js' %}"></script>
+{% endblock script %}

@@ -1,5 +1,6 @@
 .homepage_icon {
     height: 85vh;
+    width: 100%;
 }
 
 .home_head {
@@ -33,4 +34,28 @@
     margin-top: 2px;
     transition: all .5s ease-out;
     cursor: pointer;
+}
+
+@media screen and (max-width:600px) {
+    .homepage_icon {
+        height: 75vh;
+    }
+}
+
+@media screen and (max-width:500px) {
+    .homepage_icon {
+        height: 65vh;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .homepage_icon {
+        height: 55vh;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .homepage_icon {
+        height: 50vh;
+    }
 }

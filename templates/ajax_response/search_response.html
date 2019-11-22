@@ -1,0 +1,18 @@
+
+
+<div class="row">
+    <p>Searched for <b>{{word}}</b> with {{count}} Paragraphs in {{time_taken}}</p>
+</div>
+
+{% if maps.0 %}
+    {% for i in maps %}
+        <div class="row contain my-2">
+            {{i}}
+            <a href="/documents/{{i.id}}?word={{word}}" class="anch">View</a>
+        </div>
+    {% endfor %}
+{% else %}
+    <div class="row centered">
+        <h4>Sorry No Paragraphs found</h4>
+    </div>
+{% endif %}
