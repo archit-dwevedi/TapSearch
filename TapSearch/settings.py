@@ -25,7 +25,7 @@ SECRET_KEY = 'kjct8auqnd^+7(=03zd90!)kg@!6mak7kzprdzi$c&7t!l4%1m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -54,7 +54,7 @@ ROOT_URLCONF = 'TapSearch.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -113,8 +113,22 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
+# https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn","static_root")
+
+
+MEDIA_URL = '/media/'
+
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_cdn","media_root")
+
+
+
