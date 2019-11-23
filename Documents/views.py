@@ -46,3 +46,17 @@ def search_documents(request):
 
 
 
+
+def document_detail_view(request,id):
+    document=Paragraph.objects.filter(id=id).first()
+    text=[]
+    for i in document.text.strip().split(" "):
+        text.append(i.lower())
+    if document:
+        context={
+            "doc":document,
+            "text":text
+        }
+        return render(request,"Documents/document_detail_view.html",context)
+    else:
+        return redirect('/')

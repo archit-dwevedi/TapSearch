@@ -17,14 +17,16 @@ def upload_image_path(instance,filename):
 		new_filename=new_filename,
 		final_filename=final_filename
 		)
-
+class FileUpload(models.Model):
+    file=models.FileField(upload_to=upload_image_path,null=True,blank=True)
+    defa=models.BooleanField(default=True)
 
 class Paragraph(models.Model):
-    text=models.TextField(null=True,blank=True)
-
-
-    def __str__(self):
-        return " ".join(self.text.strip().split(" ")[:2])
+	text=models.TextField(null=True,blank=True)
+	document=models.ForeignKey(FileUpload,on_delete=models.CASCADE,null=True,blank=True)
+	doc=models.FileField(upload_to=upload_image_path,null=True,blank=True)
+	def __str__(self):
+		return " ".join(self.text.strip().split(" ")[:2])
     
 
 
@@ -36,8 +38,6 @@ class InvertedMap(models.Model):
         return self.word
 
 
-class FileUpload(models.Model):
-    file=models.FileField(upload_to=upload_image_path,null=True,blank=True)
-    defa=models.BooleanField(default=True)
+
 
 

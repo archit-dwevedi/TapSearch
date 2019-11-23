@@ -9,6 +9,9 @@
         <div class="row contain my-2">
             {{i}}
             <a href="/documents/{{i.id}}?word={{word}}" class="anch">View</a>
+            {% if i.doc %}
+            <a href="{{i.doc.url}}" class="anch_down">Download File</a>
+            {% endif %}
         </div>
     {% endfor %}
 {% else %}

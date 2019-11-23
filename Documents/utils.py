@@ -8,6 +8,7 @@ import textract
 from TapSearch.settings import BASE_DIR
 from django.core.files.storage import FileSystemStorage
 import os
+from copy import deepcopy
 
 
 
@@ -29,6 +30,7 @@ def uploadParagraphs(request,s):
     files=request.FILES.getlist(s)
     for i in files:
         myfile=i
+        j=deepcopy(i)
         fs = FileSystemStorage()
         filename = fs.save("local/"+myfile.name,myfile)
         uploaded_file_url = fs.url(filename)
@@ -40,12 +42,15 @@ def uploadParagraphs(request,s):
             paragraphs.remove('\r')
         p=[]
         for i in range(len(paragraphs)):
-            paragraphs[i]=paragraphs[i]
-            obj=Paragraph(text=paragraphs[i])
-            obj.save()
-            p.append(obj)
+            if paragraphs[i]:
+                obj=Paragraph.objects.filter(text=paragraphs[i]).first()
+                if not(obj):
+                    obj=Paragraph(text=paragraphs[i],doc=j)
+                    obj.save()
+                    p.append(obj)
         thr=threading.Thread(target=createInvertMap,args=[p])
         thr.start()
+
     return 1
 
 

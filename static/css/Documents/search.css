@@ -18,6 +18,13 @@
     ;
 }
 
+.anch_down {
+    margin-left: 3vw;
+    color: #ff7a5b;
+    text-transform: none;
+    text-decoration: none;
+}
+
 .switch-input {
     display: none;
 }

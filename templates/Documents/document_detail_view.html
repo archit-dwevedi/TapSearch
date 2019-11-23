@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block customcss %}
+    {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/' %}"> {% endcomment %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+	<div class="row my-3">
+        <h4>{{doc}}</h4>
+    </div>
+    <div class="row my-3">
+        <p>{% for i in text %}
+            {% if request.GET.word == i %}<mark>{% endif %}
+            {{i}} {% if request.GET.word == i %}</mark>{% endif %}
+        {% endfor %}</p>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block script %}
+
+
+{% endblock script %}
