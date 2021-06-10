@@ -5,7 +5,7 @@ beautifulsoup4==4.8.0
 bs4==0.0.1
 certifi==2019.3.9
 chardet==3.0.4
-Django==2.2.7
+Django==2.2.24
 django-background-task==0.1.8
 django-compat==1.0.15
 django-formtools==2.1
